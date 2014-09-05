@@ -14,6 +14,7 @@ class phpmyadmin {
   exec { 'wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.2.8/phpMyAdmin-4.2.8-english.zip':
     cwd => '/var/www',
     path => ['/usr/bin'],
+    require => Exec['mkdir -p /var/www']
   }
 
   exec { 'unzip phpMyAdmin-4.2.8-english.zip':
