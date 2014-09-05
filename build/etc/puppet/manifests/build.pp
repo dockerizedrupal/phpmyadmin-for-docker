@@ -6,7 +6,7 @@ class packages {
   }
 }
 
-class apache2 {
+class phpmyadmin {
   exec { 'mkdir -p /var/www':
     path => ['/bin'],
   }
