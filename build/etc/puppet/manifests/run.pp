@@ -1,5 +1,5 @@
 node default {
-  include apache
-  include php
-  include phpmyadmin
+  if $mysql_port_3306_tcp {
+    include phpmyadmin
+  }
 }

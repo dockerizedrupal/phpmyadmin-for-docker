@@ -1,6 +1,7 @@
 class packages {
   package {[
-      'unzip'
+      'apache2',
+      'php5'
     ]:
     ensure => present
   }
@@ -32,10 +33,6 @@ node default {
   }
 
   include packages
-  include apache
-  include php
-
-  Class['packages'] -> Class['apache']
 
   exec { 'apt-get update':
     path => ['/usr/bin'],

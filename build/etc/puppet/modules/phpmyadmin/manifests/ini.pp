@@ -1,4 +1,14 @@
+class packages {
+  package {[
+      'unzip'
+    ]:
+    ensure => present
+  }
+}
+
 class phpmyadmin {
+  include packages
+
   exec { 'mkdir -p /var/www':
     path => ['/bin'],
   }
