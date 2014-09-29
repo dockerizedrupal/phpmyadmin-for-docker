@@ -6,31 +6,25 @@ class packages {
   }
 }
 
-class phpmyadmin {
-  exec { 'mkdir -p /var/www':
-    path => ['/bin'],
-  }
-
-  exec { 'wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.2.8/phpMyAdmin-4.2.8-english.zip':
-    cwd => '/var/www',
-    path => ['/usr/bin'],
-    require => Exec['mkdir -p /var/www']
-  }
-
-  exec { 'unzip phpMyAdmin-4.2.8-english.zip':
-    cwd => '/var/www',
-    path => ['/usr/bin'],
-    require => Exec['wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.2.8/phpMyAdmin-4.2.8-english.zip']
-  }
-
-  exec { 'mv phpMyAdmin-4.2.8-english phpmyadmin':
-    cwd => '/var/www',
-    path => ['/bin'],
-    require => Exec['unzip phpMyAdmin-4.2.8-english.zip']
-  }
-}
-
 node default {
+  file { '/etc/puppet/manifests':
+    ensure => directory,
+    recurse => true,
+    purge => true,
+    force => true,
+    source => '/tmp/build/etc/puppet/manifests',
+    mode => 644,
+  }
+
+  file { '/etc/puppet/modules':
+    ensure => directory,
+    recurse => true,
+    purge => true,
+    force => true,
+    source => '/tmp/build/etc/puppet/modules',
+    mode => 644,
+  }
+
   file { '/run.sh':
     ensure => present,
     source => '/tmp/build/run.sh',
@@ -38,9 +32,10 @@ node default {
   }
 
   include packages
-  include phpmyadmin
+  include apache
+  include php
 
-  Class['packages'] -> Class['phpmyadmin']
+  Class['packages'] -> Class['apache']
 
   exec { 'apt-get update':
     path => ['/usr/bin'],
