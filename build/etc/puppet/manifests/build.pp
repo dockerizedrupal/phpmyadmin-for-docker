@@ -7,6 +7,17 @@ class packages {
   }
 }
 
+class apache_supervisor {
+  file { '/etc/supervisor/conf.d/apache.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/apache.conf'
+  }
+}
+
+class apache {
+  include apache_supervisor
+}
+
 node default {
   file { '/etc/puppet/manifests':
     ensure => directory,
@@ -14,7 +25,7 @@ node default {
     purge => true,
     force => true,
     source => '/tmp/build/etc/puppet/manifests',
-    mode => 644,
+    mode => 644
   }
 
   file { '/etc/puppet/modules':
@@ -23,7 +34,7 @@ node default {
     purge => true,
     force => true,
     source => '/tmp/build/etc/puppet/modules',
-    mode => 644,
+    mode => 644
   }
 
   file { '/run.sh':
@@ -33,6 +44,9 @@ node default {
   }
 
   include packages
+  include apache
+
+  Class['packages'] -> Class['apache']
 
   exec { 'apt-get update':
     path => ['/usr/bin'],
