@@ -2,7 +2,7 @@
 
 ## Run the container
 
-    CONTAINER=phpmyadmin && sudo docker run \
+    CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 80:80 \
