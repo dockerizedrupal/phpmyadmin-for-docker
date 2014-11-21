@@ -1,8 +1,6 @@
-# docker-phpmyadmin
+# docker-phpmyadmin-4.2.8
 
-## phpMyAdmin 4.2.8
-
-### Run the container
+## Run the container
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -12,7 +10,7 @@
       -d \
       simpledrupalcloud/phpmyadmin:4.2.8
 
-### Build the image
+## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
