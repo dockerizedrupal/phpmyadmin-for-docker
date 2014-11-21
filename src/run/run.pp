@@ -1,5 +1,5 @@
 node default {
-  if $mysqld_host {
+  if $db_host {
     include phpmyadmin
   }
 }
