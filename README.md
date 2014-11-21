@@ -2,7 +2,7 @@
 
 A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin.net/home_page/).
 
-## phpMyAdmin (STABLE BRANCH)
+## phpMyAdmin (DEVELOPMENT BRANCH)
 
 ### Run the container
 
@@ -13,13 +13,14 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -p 80:80 \
       -d \
-      simpledrupalcloud/phpmyadmin:latest
+      simpledrupalcloud/phpmyadmin:dev
       
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout dev \
       && fig up
 
 #### Connect automatically to MySQL server by linking with another Docker container
@@ -32,14 +33,15 @@ Using the `fig` command
       -e DB_USERNAME="root" \
       -e DB_PASSWORD="root" \
       -d \
-      simpledrupalcloud/phpmyadmin:latest
+      simpledrupalcloud/phpmyadmin:dev
 
 ### Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/phpmyadmin:latest . \
+      && git checkout dev \
+      && sudo docker build -t simpledrupalcloud/phpmyadmin:dev . \
       && cd -
 
 ## License
