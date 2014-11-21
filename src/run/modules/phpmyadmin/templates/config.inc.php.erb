@@ -1,13 +1,13 @@
 <?php
 
-$cfg['blowfish_secret'] = '9ddwAC*%^g$559rU';
+$cfg['blowfish_secret'] = 'phpmyadmin';
 
 $i = 0;
 
 $i++;
 
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
-$cfg['Servers'][$i]['host'] = '127.0.0.1';
+$cfg['Servers'][$i]['host'] = '<%= @mysqld_host %>';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = TRUE;
 $cfg['Servers'][$i]['AllowNoPassword'] = FALSE;
