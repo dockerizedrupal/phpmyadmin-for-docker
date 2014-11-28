@@ -23,7 +23,7 @@ Using the `fig` command
       && git checkout dev \
       && sudo fig up
 
-#### Connect automatically to MySQL server by linking with another Docker container
+#### Connect directly to MySQL server by linking with another Docker container
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
