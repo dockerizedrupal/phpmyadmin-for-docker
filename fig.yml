@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:dev
+  image: simpledrupalcloud/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80:80"
