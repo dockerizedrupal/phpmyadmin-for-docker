@@ -19,4 +19,4 @@ RUN apt-get clean
 EXPOSE 80
 EXPOSE 443
 
-ENTRYPOINT ["/src/run.sh"]
+CMD ["/src/run.sh"]
