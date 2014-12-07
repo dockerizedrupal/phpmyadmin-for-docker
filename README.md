@@ -12,6 +12,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 80:80 \
+      -p 443:443 \
       -d \
       simpledrupalcloud/phpmyadmin:dev
       
@@ -29,6 +30,7 @@ Using the `fig` command
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 80:80 \
+      -p 443:443 \
       --link mysqld:db \
       -e DB_USERNAME="root" \
       -e DB_PASSWORD="root" \

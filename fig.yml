@@ -3,3 +3,4 @@ phpmyadmin:
   hostname: phpmyadmin
   ports:
     - "80:80"
+    - "443:443"
