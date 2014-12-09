@@ -2,9 +2,7 @@
 
 A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin.net/home_page/).
 
-## phpMyAdmin (DEVELOPMENT BRANCH)
-
-### Run the container
+## Run the container
 
 Using the `docker` command:
 
@@ -24,7 +22,7 @@ Using the `fig` command
       && git checkout dev \
       && sudo fig up
 
-#### Connect directly to MySQL server by linking with another Docker container
+## Connect directly to MySQL server by linking with another Docker container
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -37,7 +35,7 @@ Using the `fig` command
       -d \
       simpledrupalcloud/phpmyadmin:dev
 
-### Build the image
+## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
