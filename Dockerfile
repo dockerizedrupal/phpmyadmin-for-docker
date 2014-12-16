@@ -6,11 +6,15 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN chmod +x /src/build.sh
-RUN /src/build.sh
+RUN apt-get update
 
-RUN rm -rf /tmp/*
+RUN /src/build.sh
+RUN /src/clean.sh
+
+VOLUME ["/httpd/ssl/certs"]
+VOLUME ["/httpd/ssl/private"]
 
 EXPOSE 80
+EXPOSE 443
 
-ENTRYPOINT ["/src/run.sh"]
+CMD ["/src/run.sh"]
