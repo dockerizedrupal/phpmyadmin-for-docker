@@ -1,4 +1,4 @@
-class phpmyadmin::packages {
+class phpmyadmin::php::packages {
   package {[
       'php5',
       'php5-mysql'

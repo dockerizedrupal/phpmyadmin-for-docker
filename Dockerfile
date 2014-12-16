@@ -1,4 +1,4 @@
-FROM simpledrupalcloud/httpd:dev
+FROM simpledrupalcloud/base:dev
 
 MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
 
@@ -11,9 +11,8 @@ RUN apt-get update
 RUN /src/build.sh
 RUN /src/clean.sh
 
-VOLUME ["/httpd/data"]
-VOLUME ["/httpd/ssl/certs"]
-VOLUME ["/httpd/ssl/private"]
+VOLUME ["/phpmyadmin/ssl/certs"]
+VOLUME ["/phpmyadmin/ssl/private"]
 
 EXPOSE 80
 EXPOSE 443
