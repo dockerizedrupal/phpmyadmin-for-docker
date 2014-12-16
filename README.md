@@ -11,7 +11,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -v /httpd/ssl/certs \
       -v /httpd/ssl/private \
-      simpledrupalcloud/data:dev
+      simpledrupalcloud/data:latest
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -37,7 +37,7 @@ Using the `fig` command
       -h "${CONTAINER}" \
       -v /httpd/ssl/certs \
       -v /httpd/ssl/private \
-      simpledrupalcloud/data:dev
+      simpledrupalcloud/data:latest
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
