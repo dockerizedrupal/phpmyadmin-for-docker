@@ -1,0 +1,16 @@
+<IfModule mod_ssl.c>
+  <VirtualHost *:443>
+    DocumentRoot /phpmyadmin/data
+
+    <Directory "/phpmyadmin/data">
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+    </Directory>
+
+    SSLEngine on
+    SSLCertificateFile /phpmyadmin/ssl/certs/phpmyadmin.crt
+    SSLCertificateKeyFile /phpmyadmin/ssl/private/phpmyadmin.key
+  </VirtualHost>
+</IfModule>
