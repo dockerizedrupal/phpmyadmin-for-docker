@@ -1,6 +1,6 @@
 class phpmyadmin {
-  require adminer::php
-  require adminer::httpd
+  require phpmyadmin::php
+  require phpmyadmin::httpd
 
   file { '/tmp/phpMyAdmin-4.2.12-all-languages.zip':
     ensure => present,
