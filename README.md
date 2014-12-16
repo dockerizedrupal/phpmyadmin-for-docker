@@ -11,7 +11,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -v /httpd/ssl/certs \
       -v /httpd/ssl/private \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -37,7 +37,7 @@ Using the `fig` command
       -h "${CONTAINER}" \
       -v /httpd/ssl/certs \
       -v /httpd/ssl/private \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -45,8 +45,8 @@ Using the `fig` command
       -p 80:80 \
       -p 443:443 \
       --volumes-from phpmyadmindata \
-      -e SERVER_NAME="localhost" \
       --link mysqld:db \
+      -e SERVER_NAME="localhost" \
       -e DB_USERNAME="root" \
       -e DB_PASSWORD="root" \
       -d \
