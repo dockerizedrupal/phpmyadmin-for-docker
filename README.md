@@ -62,6 +62,22 @@ Using the `fig` command
       && sudo docker build -t simpledrupalcloud/phpmyadmin:dev . \
       && cd -
 
+## Back up phpMyAdmin data
+
+    sudo docker run \
+      --rm \
+      --volumes-from phpmyadmindata \
+      -v $(pwd):/backup \
+      simpledrupalcloud/data:dev tar czvf /backup/phpmyadmindata.tar.gz /httpd/ssl/certs /httpd/ssl/private
+
+## Restore phpMyAdmin data from a backup
+
+    sudo docker run \
+      --rm \
+      --volumes-from phpmyadmindata \
+      -v $(pwd):/backup \
+      simpledrupalcloud/data:dev tar xzvf /backup/phpmyadmindata.tar.gz
+
 ## License
 
 **MIT**
