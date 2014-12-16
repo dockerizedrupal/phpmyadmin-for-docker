@@ -5,7 +5,7 @@ phpmyadmin:
     - "80:80"
     - "443:443"
   volumes_from:
-    - httpddata
+    - phpmyadmindata
   environment:
     - SERVER_NAME=localhost
 phpmyadmindata:
