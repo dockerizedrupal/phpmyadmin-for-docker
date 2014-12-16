@@ -17,9 +17,9 @@ class phpmyadmin {
     require => Exec['unzip phpMyAdmin-4.2.12-all-languages.zip']
   }
 
-  exec { 'mv phpMyAdmin-4.2.12-all-languages /httpd/data':
+  exec { 'rsync -avz phpMyAdmin-4.2.12-all-languages/ /httpd/data':
     cwd => '/tmp',
-    path => ['/bin'],
+    path => ['/usr/bin'],
     require => Exec['rm -rf /httpd/data']
   }
 }
