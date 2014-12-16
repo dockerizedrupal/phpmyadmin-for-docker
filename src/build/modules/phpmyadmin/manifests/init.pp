@@ -12,14 +12,9 @@ class phpmyadmin {
     require => File['/tmp/phpMyAdmin-4.2.12-all-languages.zip']
   }
 
-  exec { 'rm -rf /httpd/data':
-    path => ['/bin'],
-    require => Exec['unzip phpMyAdmin-4.2.12-all-languages.zip']
-  }
-
   exec { 'rsync -avz phpMyAdmin-4.2.12-all-languages/ /httpd/data':
     cwd => '/tmp',
     path => ['/usr/bin'],
-    require => Exec['rm -rf /httpd/data']
+    require => Exec['unzip phpMyAdmin-4.2.12-all-languages.zip']
   }
 }
