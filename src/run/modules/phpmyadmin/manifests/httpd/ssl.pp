@@ -27,6 +27,6 @@ class phpmyadmin::httpd::ssl {
   exec { "openssl x509 -req -in /phpmyadmin/ssl/certs/phpmyadmin.csr -CA /phpmyadmin/ssl/certs/phpmyadminCA.crt -CAkey /phpmyadmin/ssl/private/phpmyadminCA.key -CAcreateserial -out /phpmyadmin/ssl/certs/phpmyadmin.crt -days 365":
     timeout => 0,
     path => ['/usr/bin'],
-    require => Exec["openssl req -new -key /phpmyadmin/ssl/private/phpmyadmin.key -subj $subj -out /phpmyadmin/ssl/certs/phpmyadmin.csr"]
+    require => Exec["openssl req -sha256 -new -key /phpmyadmin/ssl/private/phpmyadmin.key -subj $subj -out /phpmyadmin/ssl/certs/phpmyadmin.csr"]
   }
 }
