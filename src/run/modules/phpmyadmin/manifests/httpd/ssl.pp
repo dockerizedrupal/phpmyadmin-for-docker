@@ -18,7 +18,7 @@ class phpmyadmin::httpd::ssl {
 
   $subj = "/C=/ST=/L=/O=/CN=$server_name"
 
-  exec { "openssl req -new -key /phpmyadmin/ssl/private/phpmyadmin.key -subj $subj -out /phpmyadmin/ssl/certs/phpmyadmin.csr":
+  exec { "openssl req -sha256 -new -key /phpmyadmin/ssl/private/phpmyadmin.key -subj $subj -out /phpmyadmin/ssl/certs/phpmyadmin.csr":
     timeout => 0,
     path => ['/usr/bin'],
     require => Exec['openssl genrsa -out /phpmyadmin/ssl/private/phpmyadmin.key 4096']
