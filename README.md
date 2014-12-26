@@ -46,10 +46,10 @@ Using the `fig` command
       -p 80:80 \
       -p 443:443 \
       --volumes-from phpmyadmindata \
-      --link mysqld:db \
+      --link mysqld:mysqld \
       -e SERVER_NAME="localhost" \
-      -e DB_USERNAME="root" \
-      -e DB_PASSWORD="root" \
+      -e MYSQLD_USERNAME="root" \
+      -e MYSQLD_PASSWORD="root" \
       -d \
       simpledrupalcloud/phpmyadmin:dev
 
