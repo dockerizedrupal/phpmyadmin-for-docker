@@ -1,5 +1,5 @@
 class phpmyadmin {
-  if ! file_exists('/phpmyadmin/ssl/certs/vhost.crt') {
+  if ! file_exists('/phpmyadmin/ssl/certs/phpmyadmin.crt') {
     require phpmyadmin::httpd::ssl
   }
 
