@@ -1,4 +1,5 @@
 class phpmyadmin::php {
+  require phpmyadmin::httpd
   require phpmyadmin::php::packages
 
   file { '/etc/php5/apache2/php.ini':
