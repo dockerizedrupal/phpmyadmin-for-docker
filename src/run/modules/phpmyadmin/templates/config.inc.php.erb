@@ -12,6 +12,7 @@ $cfg['Servers'][$i]['port'] = '<%= @mysqld_port %>';
 $cfg['Servers'][$i]['user'] = '<%= @mysqld_username %>';
 $cfg['Servers'][$i]['password'] = '<%= @mysqld_password %>';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['compress'] = TRUE;
 $cfg['Servers'][$i]['AllowNoPassword'] = FALSE;
 $cfg['Servers'][$i]['hide_db'] = '^information_schema|mysql|performance_schema$';
