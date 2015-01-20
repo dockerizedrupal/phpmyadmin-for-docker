@@ -66,7 +66,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmyadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin/ssl/certs /phpmyadmin/ssl/private
+      simpledrupalcloud/base:latest tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin/ssl/certs /phpmyadmin/ssl/private
 
 ## Restore phpMyAdmin data from a backup
 
@@ -74,7 +74,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmyadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar xzvf /backup/phpmyadmindata.tar.gz
+      simpledrupalcloud/base:latest tar xzvf /backup/phpmyadmindata.tar.gz
 
 ## License
 
