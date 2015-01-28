@@ -4,7 +4,7 @@ class phpmyadmin {
   }
 
   if $mysqld_host {
-    file { '/phpmyadmin/data/config.inc.php':
+    file { '/var/www/config.inc.php':
       ensure  => present,
       content => template('phpmyadmin/config.inc.php.erb')
     }

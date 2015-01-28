@@ -12,8 +12,7 @@ RUN apt-get update
 RUN /src/build.sh
 RUN /src/clean.sh
 
-VOLUME ["/phpmyadmin/ssl/certs"]
-VOLUME ["/phpmyadmin/ssl/private"]
+VOLUME ["/phpmyadmin"]
 
 EXPOSE 80
 EXPOSE 443

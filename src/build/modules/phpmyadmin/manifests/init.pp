@@ -13,7 +13,7 @@ class phpmyadmin {
     require => File['/tmp/phpMyAdmin-4.3.6-all-languages.zip']
   }
 
-  exec { 'rsync -avz phpMyAdmin-4.3.6-all-languages/ /phpmyadmin/data':
+  exec { 'rsync -avz phpMyAdmin-4.3.6-all-languages/ /var/www':
     cwd => '/tmp',
     path => ['/usr/bin'],
     require => Exec['unzip phpMyAdmin-4.3.6-all-languages.zip']
