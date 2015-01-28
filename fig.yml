@@ -12,5 +12,4 @@ phpmyadmindata:
   image: simpledrupalcloud/data:latest
   hostname: phpmyadmindata
   volumes:
-    - /phpmyadmin/ssl/certs
-    - /phpmyadmin/ssl/private
+    - /phpmyadmin

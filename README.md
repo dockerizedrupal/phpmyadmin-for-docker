@@ -9,8 +9,7 @@ Using the `docker` command:
     CONTAINER="phpmyadmindata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /phpmyadmin/ssl/certs \
-      -v /phpmyadmin/ssl/private \
+      -v /phpmyadmin \
       simpledrupalcloud/data:latest
 
     CONTAINER="phpmyadmin" && sudo docker run \
@@ -35,8 +34,7 @@ Using the `fig` command
     CONTAINER="phpmyadmindata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /phpmyadmin/ssl/certs \
-      -v /phpmyadmin/ssl/private \
+      -v /phpmyadmin \
       simpledrupalcloud/data:latest
 
     CONTAINER="phpmyadmin" && sudo docker run \
@@ -66,7 +64,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmyadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin/ssl/certs /phpmyadmin/ssl/private
+      simpledrupalcloud/base:latest tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin
 
 ## Restore phpMyAdmin data from a backup
 
