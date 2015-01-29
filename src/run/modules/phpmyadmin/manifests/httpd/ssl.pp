@@ -1,4 +1,4 @@
-class phpmyadmin::phpmyadmin::ssl {
+class phpmyadmin::httpd::ssl {
   exec { 'mkdir -p /phpmyadmin/ssl':
     path => ['/bin']
   }
