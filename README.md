@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      simpledrupalcloud/data:dev
+      viljaste/data:dev
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -20,7 +20,7 @@ Using the `docker` command:
       --volumes-from phpmyadmindata \
       -e SERVER_NAME="localhost" \
       -d \
-      simpledrupalcloud/phpmyadmin:dev
+      viljaste/phpmyadmin:dev
       
 Using the `fig` command
 
@@ -36,7 +36,7 @@ Using the `fig` command
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      simpledrupalcloud/data:dev
+      viljaste/data:dev
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -49,7 +49,7 @@ Using the `fig` command
       -e MYSQLD_USERNAME="root" \
       -e MYSQLD_PASSWORD="root" \
       -d \
-      simpledrupalcloud/phpmyadmin:dev
+      viljaste/phpmyadmin:dev
 
 ## Build the image
 
@@ -66,7 +66,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmyadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:dev tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin
+      viljaste/base:dev tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin
 
 ## Restore phpMyAdmin data from a backup
 
@@ -74,7 +74,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmyadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:dev tar xzvf /backup/phpmyadmindata.tar.gz
+      viljaste/base:dev tar xzvf /backup/phpmyadmindata.tar.gz
 
 ## License
 
