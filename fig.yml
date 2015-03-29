@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80:80"
@@ -9,7 +9,7 @@ phpmyadmin:
   environment:
     - SERVER_NAME=localhost
 phpmyadmindata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: phpmyadmindata
   volumes:
     - /phpmyadmin
