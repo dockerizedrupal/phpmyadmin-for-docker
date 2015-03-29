@@ -9,7 +9,7 @@ phpmyadmin:
   environment:
     - SERVER_NAME=localhost
 phpmyadmindata:
-  image: viljaste/data:latest
+  image: viljaste/data:dev
   hostname: phpmyadmindata
   volumes:
     - /phpmyadmin
