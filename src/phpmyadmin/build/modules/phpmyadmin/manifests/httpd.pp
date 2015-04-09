@@ -2,12 +2,12 @@ class phpmyadmin::httpd {
   require phpmyadmin::httpd::packages
   require phpmyadmin::httpd::supervisor
 
-  exec { '/bin/bash -c "a2enmod actions"': }
-  exec { '/bin/bash -c "a2enmod fastcgi"': }
-  exec { '/bin/bash -c "a2enmod vhost_alias"': }
-  exec { '/bin/bash -c "a2enmod rewrite"': }
-  exec { '/bin/bash -c "a2enmod ssl"': }
-  exec { '/bin/bash -c "a2enmod headers"': }
+  bash_exec { '/bin/bash -c "a2enmod actions"': }
+  bash_exec { '/bin/bash -c "a2enmod fastcgi"': }
+  bash_exec { '/bin/bash -c "a2enmod vhost_alias"': }
+  bash_exec { '/bin/bash -c "a2enmod rewrite"': }
+  bash_exec { '/bin/bash -c "a2enmod ssl"': }
+  bash_exec { '/bin/bash -c "a2enmod headers"': }
 
   file { '/var/www/index.html':
     ensure => absent

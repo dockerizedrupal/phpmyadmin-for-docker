@@ -22,7 +22,3 @@ if [ -z "${SERVER_NAME}" ]; then
 fi
 
 export FACTER_SERVER_NAME="${SERVER_NAME}"
-
-puppet apply --modulepath=/src/run/modules /src/run/run.pp
-
-/usr/bin/supervisord
