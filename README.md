@@ -22,13 +22,13 @@ Using the `docker` command:
       -d \
       viljaste/phpmyadmin:dev
       
-Using the `fig` command
+Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout dev \
-      && sudo fig up
+      && sudo docker-compose up
 
 ## Connect directly to MySQL server by linking with another Docker container
 
@@ -59,22 +59,6 @@ Using the `fig` command
       && git checkout dev \
       && sudo docker build -t simpledrupalcloud/phpmyadmin:dev . \
       && cd -
-
-## Back up phpMyAdmin data
-
-    sudo docker run \
-      --rm \
-      --volumes-from phpmyadmindata \
-      -v $(pwd):/backup \
-      viljaste/base:dev tar czvf /backup/phpmyadmindata.tar.gz /phpmyadmin
-
-## Restore phpMyAdmin data from a backup
-
-    sudo docker run \
-      --rm \
-      --volumes-from phpmyadmindata \
-      -v $(pwd):/backup \
-      viljaste/base:dev tar xzvf /backup/phpmyadmindata.tar.gz
 
 ## License
 
