@@ -27,7 +27,7 @@ Using the `docker` command:
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && IT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
+      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
@@ -57,7 +57,7 @@ Using the `docker-compose` command
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && IT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
+      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker build -t simpledrupalcloud/phpmyadmin:latest . \
       && cd -
