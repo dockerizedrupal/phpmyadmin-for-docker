@@ -19,13 +19,15 @@ Using the `docker` command:
       -p 443:443 \
       --volumes-from phpmyadmindata \
       -e SERVER_NAME="localhost" \
+      -e TIMEOUT="300" \
+      -e PROTOCOLS="https" \
       -d \
       viljaste/phpmyadmin:latest
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
+      && IT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
@@ -45,6 +47,8 @@ Using the `docker-compose` command
       --volumes-from phpmyadmindata \
       --link mysqld:mysqld \
       -e SERVER_NAME="localhost" \
+      -e TIMEOUT="300" \
+      -e PROTOCOLS="https" \
       -e MYSQLD_USERNAME="root" \
       -e MYSQLD_PASSWORD="root" \
       -d \
@@ -53,7 +57,7 @@ Using the `docker-compose` command
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmyadmin.git "${TMP}" \
+      && IT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker build -t simpledrupalcloud/phpmyadmin:latest . \
       && cd -

@@ -1,7 +1,5 @@
 class phpmyadmin {
-  if ! file_exists('/phpmyadmin/ssl/certs/phpmyadmin.crt') {
-    require phpmyadmin::httpd::ssl
-  }
+  include phpmyadmin::httpd
 
   if $mysqld_host {
     file { '/var/www/config.inc.php':

@@ -8,8 +8,10 @@ phpmyadmin:
     - phpmyadmindata
   environment:
     - SERVER_NAME=localhost
+    - TIMEOUT=300
+    - PROTOCOLS=https
 phpmyadmindata:
-  image: viljaste/data:dev
+  image: viljaste/data:latest
   hostname: phpmyadmindata
   volumes:
     - /phpmyadmin

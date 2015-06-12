@@ -3,7 +3,7 @@ class phpmyadmin::httpd {
   require phpmyadmin::httpd::supervisor
 
   bash_exec { 'a2enmod actions': }
-  bash_exec { 'a2enmod fastcgi': }
+  bash_exec { 'a2enmod proxy_fcgi': }
   bash_exec { 'a2enmod vhost_alias': }
   bash_exec { 'a2enmod rewrite': }
   bash_exec { 'a2enmod ssl': }
@@ -13,37 +13,19 @@ class phpmyadmin::httpd {
     ensure => absent
   }
 
-  file { '/etc/apache2/sites-enabled/000-default':
+  file { '/etc/apache2/sites-enabled/000-default.conf':
     ensure => absent
   }
 
-  file { '/etc/apache2/sites-available/default':
+  file { '/etc/apache2/conf-available/logs.conf':
     ensure => present,
-    source => 'puppet:///modules/phpmyadmin/etc/apache2/sites-available/default',
+    source => 'puppet:///modules/phpmyadmin/etc/apache2/conf-available/logs.conf',
     mode => 644
   }
 
-  file { '/etc/apache2/sites-enabled/default':
+  file { '/etc/apache2/conf-enabled/logs.conf':
     ensure => link,
-    target => '/etc/apache2/sites-available/default',
-    require => File['/etc/apache2/sites-available/default']
-  }
-
-  file { '/etc/apache2/sites-available/default-ssl':
-    ensure => present,
-    source => 'puppet:///modules/phpmyadmin/etc/apache2/sites-available/default-ssl',
-    mode => 644
-  }
-
-  file { '/etc/apache2/sites-enabled/default-ssl':
-    ensure => link,
-    target => '/etc/apache2/sites-available/default-ssl',
-    require => File['/etc/apache2/sites-available/default-ssl']
-  }
-
-  file { '/etc/apache2/apache2.conf':
-    ensure => present,
-    source => 'puppet:///modules/phpmyadmin/etc/apache2/apache2.conf',
-    mode => 644
+    target => '/etc/apache2/conf-available/logs.conf',
+    require => File['/etc/apache2/conf-available/logs.conf']
   }
 }

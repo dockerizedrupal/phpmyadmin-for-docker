@@ -2,4 +2,4 @@
 
 puppet apply --modulepath=/src/phpmyadmin/run/modules /src/phpmyadmin/run/run.pp
 
-/usr/bin/supervisord
+supervisord -c /etc/supervisor/supervisord.conf
