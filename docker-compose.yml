@@ -10,6 +10,8 @@ phpmyadmin:
     - SERVER_NAME=localhost
     - TIMEOUT=300
     - PROTOCOLS=https
+    - USERNAME=root
+    - PASSWORD=root
 phpmyadmindata:
   image: viljaste/data:latest
   hostname: phpmyadmindata
