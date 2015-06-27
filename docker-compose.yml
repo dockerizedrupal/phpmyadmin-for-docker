@@ -9,7 +9,7 @@ phpmyadmin:
   environment:
     - SERVER_NAME=localhost
     - TIMEOUT=300
-    - PROTOCOLS=https
+    - PROTOCOLS=https,http
     - USERNAME=root
     - PASSWORD=root
 phpmyadmindata:
