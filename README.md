@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      viljaste/data:latest
+      dockerizedrupal/data:latest
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -22,12 +22,12 @@ Using the `docker` command:
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
       -d \
-      viljaste/phpmyadmin:latest
+      dockerizedrupal/phpmyadmin:latest
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
@@ -37,7 +37,7 @@ Using the `docker-compose` command
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      viljaste/data:latest
+      dockerizedrupal/data:latest
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -52,12 +52,12 @@ Using the `docker-compose` command
       -e MYSQLD_USERNAME="root" \
       -e MYSQLD_PASSWORD="root" \
       -d \
-      viljaste/phpmyadmin:latest
+      dockerizedrupal/phpmyadmin:latest
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-phpmyadmin.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker build -t simpledrupalcloud/phpmyadmin:latest . \
       && cd -

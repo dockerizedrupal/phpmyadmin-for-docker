@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: viljaste/phpmyadmin:latest
+  image: dockerizedrupal/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80:80"
@@ -13,7 +13,7 @@ phpmyadmin:
     - USERNAME=root
     - PASSWORD=root
 phpmyadmindata:
-  image: viljaste/data:latest
+  image: dockerizedrupal/data:latest
   hostname: phpmyadmindata
   volumes:
     - /phpmyadmin
