@@ -6,7 +6,7 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
 
 Using the `docker` command:
 
-    CONTAINER="phpmyadmindata" && sudo docker run \
+    CONTAINER="phpmyadmin-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
@@ -17,7 +17,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -p 80:80 \
       -p 443:443 \
-      --volumes-from phpmyadmindata \
+      --volumes-from phpmyadmin-data \
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
@@ -33,7 +33,7 @@ Using the `docker-compose` command
 
 ## Connect directly to MySQL server by linking with another Docker container
 
-    CONTAINER="phpmyadmindata" && sudo docker run \
+    CONTAINER="phpmyadmin-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
@@ -44,7 +44,7 @@ Using the `docker-compose` command
       -h "${CONTAINER}" \
       -p 80:80 \
       -p 443:443 \
-      --volumes-from phpmyadmindata \
+      --volumes-from phpmyadmin-data \
       --link mysqld:mysqld \
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \

@@ -5,15 +5,15 @@ phpmyadmin:
     - "80:80"
     - "443:443"
   volumes_from:
-    - phpmyadmindata
+    - phpmyadmin-data
   environment:
     - SERVER_NAME=localhost
     - TIMEOUT=300
     - PROTOCOLS=https,http
     - USERNAME=root
     - PASSWORD=root
-phpmyadmindata:
+phpmyadmin-data:
   image: dockerizedrupal/data:latest
-  hostname: phpmyadmindata
+  hostname: phpmyadmin-data
   volumes:
     - /phpmyadmin
