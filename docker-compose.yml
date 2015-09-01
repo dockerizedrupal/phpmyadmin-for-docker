@@ -10,8 +10,10 @@ phpmyadmin:
     - SERVER_NAME=localhost
     - TIMEOUT=300
     - PROTOCOLS=https,http
-    - USERNAME=root
-    - PASSWORD=root
+    - MYSQL_HOST=
+    - MYSQL_PORT=3306
+    - MYSQL_USERNAME=root
+    - MYSQL_PASSWORD=root
 phpmyadmin-data:
   image: dockerizedrupal/data:latest
   hostname: phpmyadmin-data

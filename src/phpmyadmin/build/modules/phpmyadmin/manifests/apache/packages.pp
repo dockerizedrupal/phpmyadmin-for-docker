@@ -1,4 +1,4 @@
-class phpmyadmin::httpd::packages {
+class phpmyadmin::apache::packages {
   package {[
       'apache2'
     ]:

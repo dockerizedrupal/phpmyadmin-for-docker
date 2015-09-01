@@ -1,4 +1,4 @@
-class phpmyadmin::httpd::server_name {
+class phpmyadmin::apache::server_name {
   file { '/etc/apache2/conf-available/server_name.conf':
     ensure => present,
     content => template('phpmyadmin/server_name.conf.erb'),

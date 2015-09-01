@@ -1,21 +1,31 @@
 #!/usr/bin/env bash
 
-MYSQLD_PORT="$(echo "${MYSQLD_PORT}" | sed 's/tcp:\/\///')"
+if [ -n "${MYSQL_HOST}" ]; then
+  export FACTER_MYSQL_HOST="${MYSQL_HOST}"
 
-export FACTER_MYSQLD_HOST="$(echo "${MYSQLD_PORT}" | cut -d ":" -f1)"
-export FACTER_MYSQLD_PORT="$(echo "${MYSQLD_PORT}" | cut -d ":" -f2)"
+  if [ -z "${MYSQL_PORT}" ]; then
+    MYSQL_PORT="3306"
+  fi
 
-if [ -z "${MYSQLD_USERNAME}" ]; then
-  MYSQLD_USERNAME="root"
+  export FACTER_MYSQL_PORT="${MYSQL_PORT}"
+else
+  MYSQL_PORT="$(echo "${MYSQL_PORT}" | sed 's/tcp:\/\///')"
+
+  export FACTER_MYSQL_HOST="$(echo "${MYSQL_PORT}" | cut -d ":" -f1)"
+  export FACTER_MYSQL_PORT="$(echo "${MYSQL_PORT}" | cut -d ":" -f2)"
 fi
 
-export FACTER_MYSQLD_USERNAME="${MYSQLD_USERNAME}"
-
-if [ -z "${MYSQLD_PASSWORD}" ]; then
-  MYSQLD_PASSWORD="root"
+if [ -z "${MYSQL_USERNAME}" ]; then
+  MYSQL_USERNAME="root"
 fi
 
-export FACTER_MYSQLD_PASSWORD="${MYSQLD_PASSWORD}"
+export FACTER_MYSQL_USERNAME="${MYSQL_USERNAME}"
+
+if [ -z "${MYSQL_PASSWORD}" ]; then
+  MYSQL_PASSWORD="root"
+fi
+
+export FACTER_MYSQL_PASSWORD="${MYSQL_PASSWORD}"
 
 if [ -z "${SERVER_NAME}" ]; then
   SERVER_NAME="localhost"

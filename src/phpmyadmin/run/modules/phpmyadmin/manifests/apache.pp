@@ -1,10 +1,10 @@
-class phpmyadmin::httpd {
-  include phpmyadmin::httpd::server_name
-  include phpmyadmin::httpd::timeout
+class phpmyadmin::apache {
+  include phpmyadmin::apache::server_name
+  include phpmyadmin::apache::timeout
 
   if $http and $https {
     if ! file_exists('/phpmyadmin/ssl/certs/phpmyadmin.crt') {
-      require phpmyadmin::httpd::ssl
+      require phpmyadmin::apache::ssl
     }
 
     file { '/etc/apache2/sites-available/http_https.conf':
@@ -46,7 +46,7 @@ class phpmyadmin::httpd {
   }
   elsif $https {
     if ! file_exists('/phpmyadmin/ssl/certs/phpmyadmin.crt') {
-      require phpmyadmin::httpd::ssl
+      require phpmyadmin::apache::ssl
     }
 
     file { '/etc/apache2/sites-available/https.conf':

@@ -1,6 +1,6 @@
-class phpmyadmin::httpd {
-  require phpmyadmin::httpd::packages
-  require phpmyadmin::httpd::supervisor
+class phpmyadmin::apache {
+  require phpmyadmin::apache::packages
+  require phpmyadmin::apache::supervisor
 
   bash_exec { 'a2enmod actions': }
   bash_exec { 'a2enmod proxy_fcgi': }

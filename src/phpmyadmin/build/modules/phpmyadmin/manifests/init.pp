@@ -1,6 +1,6 @@
 class phpmyadmin {
   require phpmyadmin::php
-  require phpmyadmin::httpd
+  require phpmyadmin::apache
 
   file { '/tmp/phpMyAdmin-4.4.2-all-languages.zip':
     ensure => present,

@@ -1,4 +1,4 @@
-class phpmyadmin::httpd::ssl {
+class phpmyadmin::apache::ssl {
   bash_exec { 'mkdir -p /phpmyadmin/ssl': }
 
   bash_exec { 'mkdir -p /phpmyadmin/ssl/private':

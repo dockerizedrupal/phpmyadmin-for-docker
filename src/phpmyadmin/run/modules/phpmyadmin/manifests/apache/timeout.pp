@@ -1,4 +1,4 @@
-class phpmyadmin::httpd::timeout {
+class phpmyadmin::apache::timeout {
   file { '/etc/apache2/conf-available/timeout.conf':
     ensure => present,
     content => template('phpmyadmin/timeout.conf.erb'),

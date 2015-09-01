@@ -7,10 +7,10 @@ $i = 0;
 $i++;
 
 $cfg['Servers'][$i]['auth_type'] = 'config';
-$cfg['Servers'][$i]['host'] = '<%= @mysqld_host %>';
-$cfg['Servers'][$i]['port'] = '<%= @mysqld_port %>';
-$cfg['Servers'][$i]['user'] = '<%= @mysqld_username %>';
-$cfg['Servers'][$i]['password'] = '<%= @mysqld_password %>';
+$cfg['Servers'][$i]['host'] = '<%= @mysql_host %>';
+$cfg['Servers'][$i]['port'] = '<%= @mysql_port %>';
+$cfg['Servers'][$i]['user'] = '<%= @mysql_username %>';
+$cfg['Servers'][$i]['password'] = '<%= @mysql_password %>';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['compress'] = TRUE;

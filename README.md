@@ -21,6 +21,10 @@ Using the `docker` command:
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
+      -e MYSQL_HOST="" \
+      -e MYSQL_PORT="3306" \
+      -e MYSQL_USERNAME="root" \
+      -e MYSQL_PASSWORD="root" \
       -d \
       dockerizedrupal/phpmyadmin:latest
       
@@ -45,12 +49,12 @@ Using the `docker-compose` command
       -p 80:80 \
       -p 443:443 \
       --volumes-from phpmyadmin-data \
-      --link mysqld:mysqld \
+      --link mysql:mysql \
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
-      -e MYSQLD_USERNAME="root" \
-      -e MYSQLD_PASSWORD="root" \
+      -e MYSQL_USERNAME="root" \
+      -e MYSQL_PASSWORD="root" \
       -d \
       dockerizedrupal/phpmyadmin:latest
 
