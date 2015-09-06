@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: dockerizedrupal/phpmyadmin:1.0.2
+  image: dockerizedrupal/phpmyadmin:1.0.3
   hostname: phpmyadmin
   ports:
     - "80:80"
@@ -15,7 +15,7 @@ phpmyadmin:
     - MYSQL_USERNAME=root
     - MYSQL_PASSWORD=root
 phpmyadmin-data:
-  image: dockerizedrupal/data:1.0.2
+  image: dockerizedrupal/data:1.0.3
   hostname: phpmyadmin-data
   volumes:
     - /phpmyadmin
