@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: dockerizedrupal/phpmyadmin:1.0.3
+  image: dockerizedrupal/phpmyadmin:1.0.4
   hostname: phpmyadmin
   ports:
     - "80:80"
@@ -8,6 +8,7 @@ phpmyadmin:
     - phpmyadmin-data
   environment:
     - SERVER_NAME=localhost
+    - TIMEZONE=Etc/UTC
     - TIMEOUT=300
     - PROTOCOLS=https,http
     - MYSQL_HOST=
