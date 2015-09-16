@@ -36,7 +36,7 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.6 \
+      && git checkout 1.0.7 \
       && sudo docker-compose up
 
 ## Connect directly to MySQL server by linking with another Docker container
@@ -70,7 +70,7 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.6 \
+      && git checkout 1.0.7 \
       && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.7 . \
       && cd -
 
