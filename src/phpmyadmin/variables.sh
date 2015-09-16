@@ -16,13 +16,13 @@ else
 fi
 
 if [ -z "${MYSQL_USERNAME}" ]; then
-  MYSQL_USERNAME="root"
+  MYSQL_USERNAME="container"
 fi
 
 export FACTER_MYSQL_USERNAME="${MYSQL_USERNAME}"
 
 if [ -z "${MYSQL_PASSWORD}" ]; then
-  MYSQL_PASSWORD="root"
+  MYSQL_PASSWORD="container"
 fi
 
 export FACTER_MYSQL_PASSWORD="${MYSQL_PASSWORD}"
@@ -62,7 +62,7 @@ for PROTOCOL in ${PROTOCOLS}; do
 done
 
 if [ -z "${HTTP_BASIC_AUTH_USERNAME}" ]; then
-  HTTP_BASIC_AUTH_USERNAME="admin"
+  HTTP_BASIC_AUTH_USERNAME="container"
 fi
 
 export FACTER_HTTP_BASIC_AUTH_USERNAME="${HTTP_BASIC_AUTH_USERNAME}"

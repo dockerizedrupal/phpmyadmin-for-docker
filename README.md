@@ -24,12 +24,12 @@ Using the `docker` command:
       -e PROTOCOLS="https,http" \
       -e MYSQL_HOST="" \
       -e MYSQL_PORT="3306" \
-      -e MYSQL_USERNAME="root" \
-      -e MYSQL_PASSWORD="root" \
-      -e HTTP_BASIC_AUTH_USERNAME="admin" \
+      -e MYSQL_USERNAME="container" \
+      -e MYSQL_PASSWORD="container" \
+      -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.6
+      dockerizedrupal/phpmyadmin:1.0.7
       
 Using the `docker-compose` command
 
@@ -58,12 +58,12 @@ Using the `docker-compose` command
       -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
-      -e MYSQL_USERNAME="root" \
-      -e MYSQL_PASSWORD="root" \
-      -e HTTP_BASIC_AUTH_USERNAME="admin" \
+      -e MYSQL_USERNAME="container" \
+      -e MYSQL_PASSWORD="container" \
+      -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.6
+      dockerizedrupal/phpmyadmin:1.0.7
 
 ## Build the image
 
@@ -71,7 +71,7 @@ Using the `docker-compose` command
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 1.0.6 \
-      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.6 . \
+      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.7 . \
       && cd -
 
 ## License
