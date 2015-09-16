@@ -2,6 +2,10 @@ class phpmyadmin::apache {
   include phpmyadmin::apache::server_name
   include phpmyadmin::apache::timeout
 
+  if $http_basic_auth_password {
+    include phpmyadmin::apache::http_basic_auth
+  }
+
   if $http and $https {
     if ! file_exists('/phpmyadmin/ssl/certs/phpmyadmin.crt') {
       require phpmyadmin::apache::ssl
