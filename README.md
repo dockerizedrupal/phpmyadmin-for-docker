@@ -27,14 +27,14 @@ Using the `docker` command:
       -e MYSQL_USERNAME="root" \
       -e MYSQL_PASSWORD="root" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.4
+      dockerizedrupal/phpmyadmin:1.0.5
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.4 \
+      && git checkout 1.0.5 \
       && sudo docker-compose up
 
 ## Connect directly to MySQL server by linking with another Docker container
@@ -59,15 +59,15 @@ Using the `docker-compose` command
       -e MYSQL_USERNAME="root" \
       -e MYSQL_PASSWORD="root" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.4
+      dockerizedrupal/phpmyadmin:1.0.5
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.4 \
-      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.4 . \
+      && git checkout 1.0.5 \
+      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.5 . \
       && cd -
 
 ## License
