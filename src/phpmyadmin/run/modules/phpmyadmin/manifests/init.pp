@@ -1,5 +1,6 @@
 class phpmyadmin {
   include phpmyadmin::apache
+  include phpmyadmin::php
   include phpmyadmin::timezone
 
   if $mysql_host {

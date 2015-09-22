@@ -4,8 +4,6 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
 
 ## Run the container
 
-Using the `docker` command:
-
     CONTAINER="phpmyadmin-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
@@ -29,17 +27,9 @@ Using the `docker` command:
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.7
-      
-Using the `docker-compose` command
+      dockerizedrupal/phpmyadmin:1.0.8
 
-    TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
-      && cd "${TMP}" \
-      && git checkout 1.0.7 \
-      && sudo docker-compose up
-
-## Connect directly to MySQL server by linking with another Docker container
+## Connect directly to MySQL server by linking to another Docker container
 
     CONTAINER="phpmyadmin-data" && sudo docker run \
       --name "${CONTAINER}" \
@@ -56,23 +46,27 @@ Using the `docker-compose` command
       --link mysql:mysql \
       -e SERVER_NAME="localhost" \
       -e TIMEZONE="Etc/UTC" \
-      -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
       -e MYSQL_USERNAME="container" \
       -e MYSQL_PASSWORD="container" \
+      -e PHP_INI_MAX_EXECUTION_TIME="900" \
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.7
+      dockerizedrupal/phpmyadmin:1.0.8
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.7 \
-      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.7 . \
+      && git checkout 1.0.8 \
+      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.8 . \
       && cd -
+
+## Changing the container behaviour on runtime through environment variables
+
+    // TODO
 
 ## License
 
