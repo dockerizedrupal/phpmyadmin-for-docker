@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: dockerizedrupal/phpmyadmin:1.0.8
+  image: dockerizedrupal/phpmyadmin:1.0.9
   hostname: phpmyadmin
   ports:
     - "80:80"

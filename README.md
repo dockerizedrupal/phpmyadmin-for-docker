@@ -27,7 +27,7 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.8
+      dockerizedrupal/phpmyadmin:1.0.9
 
 ## Connect directly to MySQL server by linking to another Docker container
 
@@ -53,14 +53,14 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.8
+      dockerizedrupal/phpmyadmin:1.0.9
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.8 \
+      && git checkout 1.0.9 \
       && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.8 . \
       && cd -
 
