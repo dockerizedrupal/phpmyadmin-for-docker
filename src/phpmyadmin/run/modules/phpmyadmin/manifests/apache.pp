@@ -2,7 +2,7 @@ class phpmyadmin::apache {
   include phpmyadmin::apache::server_name
   include phpmyadmin::apache::timeout
 
-  if $http_basic_auth_password {
+  if $http_basic_auth == "On" {
     include phpmyadmin::apache::http_basic_auth
   }
 

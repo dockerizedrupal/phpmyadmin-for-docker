@@ -1,6 +1,6 @@
 # docker-phpmyadmin
 
-A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin.net/home_page/).
+A Docker image for [phpMyAdmin](http://www.phpmyadmin.net/home_page/) that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
 
 ## Run the container
 
@@ -8,7 +8,7 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      dockerizedrupal/data:1.0.3
+      dockerizedrupal/data:1.1.0
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -18,16 +18,17 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
       --volumes-from phpmyadmin-data \
       -e SERVER_NAME="localhost" \
       -e TIMEZONE="Etc/UTC" \
-      -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
       -e MYSQL_HOST="" \
       -e MYSQL_PORT="3306" \
       -e MYSQL_USERNAME="container" \
       -e MYSQL_PASSWORD="container" \
+      -e PHP_INI_MAX_EXECUTION_TIME="900" \
+      -e HTTP_BASIC_AUTH="Off" \
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.9
+      dockerizedrupal/phpmyadmin:1.1.0
 
 ## Connect directly to MySQL server by linking to another Docker container
 
@@ -35,7 +36,7 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      dockerizedrupal/data:1.0.3
+      dockerizedrupal/data:1.1.0
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -50,18 +51,19 @@ A [Docker](https://docker.com/) container for [phpMyAdmin](http://www.phpmyadmin
       -e MYSQL_USERNAME="container" \
       -e MYSQL_PASSWORD="container" \
       -e PHP_INI_MAX_EXECUTION_TIME="900" \
+      -e HTTP_BASIC_AUTH="Off" \
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.0.9
+      dockerizedrupal/phpmyadmin:1.1.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.9 \
-      && sudo docker build -t simpledrupalcloud/phpmyadmin:1.0.8 . \
+      && git checkout 1.1.0 \
+      && sudo docker build -t dockerizedrupal/phpmyadmin:1.1.0 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables

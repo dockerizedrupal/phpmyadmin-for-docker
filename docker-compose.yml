@@ -1,5 +1,5 @@
 phpmyadmin:
-  image: dockerizedrupal/phpmyadmin:1.0.9
+  image: dockerizedrupal/phpmyadmin:1.1.0
   hostname: phpmyadmin
   ports:
     - "80:80"
@@ -15,10 +15,11 @@ phpmyadmin:
     - MYSQL_USERNAME=container
     - MYSQL_PASSWORD=container
     - PHP_INI_MAX_EXECUTION_TIME=900
+    - HTTP_BASIC_AUTH=Off
     - HTTP_BASIC_AUTH_USERNAME=container
     - HTTP_BASIC_AUTH_PASSWORD=
 phpmyadmin-data:
-  image: dockerizedrupal/data:1.0.3
+  image: dockerizedrupal/data:1.1.0
   hostname: phpmyadmin-data
   volumes:
     - /phpmyadmin
