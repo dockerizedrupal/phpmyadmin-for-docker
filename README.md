@@ -1,6 +1,8 @@
 # docker-phpmyadmin
 
-A Docker image for [phpMyAdmin](http://www.phpmyadmin.net/home_page/) that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
+A Docker image for [phpMyAdmin](http://www.phpmyadmin.net/home_page/).
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
