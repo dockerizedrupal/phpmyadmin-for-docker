@@ -77,4 +77,6 @@ class phpmyadmin::apache {
       require => File['/etc/apache2/sites-available/https-ssl.conf']
     }
   }
+
+  bash_exec { 'rm -rf /var/run/apache2/apache2.pid': }
 }
