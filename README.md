@@ -1,8 +1,6 @@
-# docker-phpmyadmin
+# phpmyadmin-for-docker
 
 A Docker image for [phpMyAdmin](http://www.phpmyadmin.net/home_page/).
-
-This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
@@ -10,7 +8,8 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      dockerizedrupal/data:1.1.0
+      --entrypoint /bin/echo \
+      dockerizedrupal/phpmyadmin:2.0.0 "Data-only container for PhpMyAdmin."
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -30,7 +29,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.1.1
+      dockerizedrupal/phpmyadmin:2.0.0
 
 ## Connect directly to MySQL server by linking to another Docker container
 
@@ -38,7 +37,8 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /phpmyadmin \
-      dockerizedrupal/data:1.1.0
+      --entrypoint /bin/echo \
+      dockerizedrupal/phpmyadmin:2.0.0 "Data-only container for PhpMyAdmin."
 
     CONTAINER="phpmyadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -57,20 +57,16 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/phpmyadmin:1.1.1
+      dockerizedrupal/phpmyadmin:2.0.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-phpmyadmin.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/phpmyadmin-for-docker.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.1.1 \
-      && sudo docker build -t dockerizedrupal/phpmyadmin:1.1.1 . \
+      && git checkout 2.0.0 \
+      && sudo docker build -t dockerizedrupal/phpmyadmin:2.0.0 . \
       && cd -
-
-## Changing the container behaviour on runtime through environment variables
-
-    // TODO
 
 ## License
 
